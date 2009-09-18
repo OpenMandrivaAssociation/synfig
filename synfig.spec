@@ -5,8 +5,9 @@
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
 Version:	0.61.09
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
+Patch0:		synfig-0.61.09-gcc4.4.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
@@ -61,14 +62,16 @@ provided by synfig.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 # These two fix for the split of libMagick in recent releases - AdamW
-sed -i -e 's.Magick,OptimizeImageTransparency.MagickCore,OptimizeImageTransparency.g' configure.ac
-sed -i -e 's,MagickLib::,MagickCore::,g' src/modules/mod_magickpp/trgt_magickpp.cpp
+#sed -i -e 's.Magick,OptimizeImageTransparency.MagickCore,OptimizeImageTransparency.g' configure.ac
+#sed -i -e 's,MagickLib::,MagickCore::,g' src/modules/mod_magickpp/trgt_magickpp.cpp
 
-autoreconf
-CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick' %configure2_5x
+#autoreconf -fi
+#CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick'
+%configure2_5x
 %make
 								
 %install
