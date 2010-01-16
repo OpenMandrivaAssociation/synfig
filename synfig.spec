@@ -4,14 +4,14 @@
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
-Version:	0.61.09
-Release:	%mkrel 2
+Version:	0.62.00
+Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 Patch0:		synfig-0.61.09-gcc4.4.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
-BuildRequires:	etl
+BuildRequires:	etl >= 0.04.13
 BuildRequires:	libxml++-devel
 BuildRequires:	sigc++2.0-devel
 BuildRequires:	libltdl-devel
@@ -62,7 +62,6 @@ provided by synfig.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 # These two fix for the split of libMagick in recent releases - AdamW
