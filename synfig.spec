@@ -7,7 +7,6 @@ Summary:	Vector-based 2D animation renderer
 Version:	0.62.00
 Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
-Patch0:		synfig-0.61.09-gcc4.4.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
