@@ -7,6 +7,7 @@ Summary:	Vector-based 2D animation renderer
 Version:	0.62.00
 Release:	%mkrel 2
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
+Patch0:		synfig-0.62.00-fix-build.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
@@ -61,6 +62,7 @@ provided by synfig.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 # These two fix for the split of libMagick in recent releases - AdamW
