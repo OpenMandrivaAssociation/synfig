@@ -4,8 +4,8 @@
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
-Version:	0.62.00
-Release:	%mkrel 2
+Version:	0.62.02
+Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 Patch0:		synfig-0.62.00-fix-build.patch
 URL:		http://www.synfig.org
@@ -28,7 +28,6 @@ BuildRequires:	imagemagick-devel
 Requires:	libdv-apps
 Requires:	imagemagick
 Requires:	ffmpeg
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 synfig is a vector based 2D animation renderer. It is designed to be
