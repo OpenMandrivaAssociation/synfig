@@ -4,18 +4,18 @@
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
-Version:	0.62.02
-Release:	%mkrel 2
+Version:	0.63.02
+Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
-Patch0:		synfig-0.62.00-fix-build.patch
+Patch0:		synfig-0.63.00-libpng1.5.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
-BuildRequires:	etl >= 0.04.13
+BuildRequires:	etl-devel >= 0.04.14
 BuildRequires:	libxml++-devel
 BuildRequires:	sigc++2.0-devel
 BuildRequires:	libltdl-devel
-BuildRequires:	gettext
+BuildRequires:	gettext-devel
 BuildRequires:	cvs
 BuildRequires:	png-devel
 BuildRequires:	mng-devel
@@ -65,12 +65,15 @@ provided by synfig.
 
 %build
 # These two fix for the split of libMagick in recent releases - AdamW
-#sed -i -e 's.Magick,OptimizeImageTransparency.MagickCore,OptimizeImageTransparency.g' configure.ac
-#sed -i -e 's,MagickLib::,MagickCore::,g' src/modules/mod_magickpp/trgt_magickpp.cpp
+sed -i -e 's|Magick,OptimizeImageTransparency|MagickCore,OptimizeImageTransparency|g' configure.ac
+sed -i -e 's|MagickLib::|MagickCore::|g' src/modules/mod_magickpp/trgt_magickpp.cpp
 
-#autoreconf -fi
-#CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick'
-%configure2_5x
+autoreconf -fi
+CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick'
+
+%configure2_5x \
+	--disable-static \
+	--with-imagemagick
 %make
 								
 %install
@@ -78,6 +81,10 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
+
+#we don't want these
+rm -rf %{buildroot}%{_libdir}/*.la
+rm -rf %{buildroot}%{_libdir}/%{name}/modules/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -98,6 +105,5 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}-config
 %{_includedir}/%{name}-*
 %{_libdir}/lib*.so
-%{_libdir}/lib*.*a
 %{_libdir}/pkgconfig/%{name}.pc
 
