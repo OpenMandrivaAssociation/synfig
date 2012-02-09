@@ -11,12 +11,13 @@ Patch0:		synfig-0.63.00-libpng1.5.patch
 URL:		http://www.synfig.org
 License:	GPLv2+
 Group:		Graphics
-BuildRequires:	etl-devel >= 0.04.14
+#BuildRequires:	etl-devel >= 0.04.14
 BuildRequires:	libxml++-devel
 BuildRequires:	sigc++2.0-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	cvs
+BuildRequires:	pkgconfig(ETL)
 BuildRequires:	png-devel
 BuildRequires:	mng-devel
 BuildRequires:	jpeg-devel
@@ -77,7 +78,6 @@ CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPF
 %make
 								
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %{name}
@@ -86,22 +86,16 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}%{_libdir}/*.la
 rm -rf %{buildroot}%{_libdir}/%{name}/modules/*.la
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS README NEWS TODO
 %config %{_sysconfdir}/%{name}_modules.cfg
 %{_bindir}/%{name}
 %{_libdir}/%{name}
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_bindir}/%{name}-config
 %{_includedir}/%{name}-*
 %{_libdir}/lib*.so
