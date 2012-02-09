@@ -4,7 +4,7 @@
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
-Version:	0.63.02
+Version:	0.63.04
 Release:	%mkrel 1
 Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
 Patch0:		synfig-0.63.00-libpng1.5.patch
@@ -61,7 +61,7 @@ provided by synfig.
 
 %prep
 %setup -q
-%patch0 -p0
+#%patch0 -p0
 
 %build
 # These two fix for the split of libMagick in recent releases - AdamW
