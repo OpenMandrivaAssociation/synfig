@@ -12,7 +12,7 @@ License:	GPLv2+
 Group:		Graphics
 BuildRequires:	libxml++-devel
 BuildRequires:	sigc++2.0-devel
-BuildRequires:	libltdl-devel
+BuildRequires:	libtool-devel
 BuildRequires:	gettext-devel
 BuildRequires:	cvs
 BuildRequires:	pkgconfig(ETL)
