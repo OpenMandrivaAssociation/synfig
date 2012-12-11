@@ -5,27 +5,30 @@
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
 Version:	0.63.05
-Release:	%mkrel 1
-Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
-URL:		http://www.synfig.org
+Release:	3
 License:	GPLv2+
 Group:		Graphics
-BuildRequires:	libxml++-devel
-BuildRequires:	sigc++2.0-devel
-BuildRequires:	libtool-devel
-BuildRequires:	gettext-devel
+URL:		http://www.synfig.org
+Source0:	http://downloads.sourceforge.net/synfig/%{name}-%{version}.tar.gz
+Patch0:		synfig-0.63.05-cflags.patch
 BuildRequires:	cvs
-BuildRequires:	pkgconfig(ETL)
-BuildRequires:	png-devel
-BuildRequires:	mng-devel
-BuildRequires:	jpeg-devel
-BuildRequires:	freetype2-devel
-BuildRequires:	fontconfig-devel
-BuildRequires:	OpenEXR-devel
 BuildRequires:	ffmpeg-devel
-BuildRequires:	imagemagick-devel
+BuildRequires:	gettext-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	libltdl-devel
+BuildRequires:	mng-devel
+BuildRequires:	pkgconfig(ETL)
+BuildRequires:	pkgconfig(fontconfig)
+BuildRequires:	pkgconfig(freetype2)
+BuildRequires:	pkgconfig(ImageMagick)
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(libxml++-2.6)
+BuildRequires:	pkgconfig(OpenEXR)
+BuildRequires:	pkgconfig(sigc++-2.0)
 Requires:	libdv-apps
 Requires:	imagemagick
+Requires:	x11-font-cursor-misc
+Requires:	x11-font-misc
 Requires:	ffmpeg
 
 %description
@@ -73,15 +76,11 @@ CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPF
 	--disable-static \
 	--with-imagemagick
 %make
-								
+
 %install
 %makeinstall_std
 
 %find_lang %{name}
-
-#we don't want these
-rm -rf %{buildroot}%{_libdir}/*.la
-rm -rf %{buildroot}%{_libdir}/%{name}/modules/*.la
 
 %files -f %{name}.lang
 %doc AUTHORS README NEWS TODO
@@ -97,4 +96,5 @@ rm -rf %{buildroot}%{_libdir}/%{name}/modules/*.la
 %{_includedir}/%{name}-*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/%{name}.pc
+
 

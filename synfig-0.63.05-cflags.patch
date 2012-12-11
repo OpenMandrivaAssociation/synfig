@@ -1,0 +1,12 @@
+diff -urN synfig-0.63.05/configure.ac synfig-0.63.05-patched/configure.ac
+--- synfig-0.63.05/configure.ac	2012-11-16 20:13:00.341438972 +1100
++++ synfig-0.63.05-patched/configure.ac	2012-11-16 21:21:34.042636628 +1100
+@@ -48,8 +48,6 @@
+ # -- A R G U M E N T S ----------------------------------------
+ 
+ 
+-AC_ARG_DEBUG
+-AC_ARG_OPTIMIZATION
+ AC_ARG_WARNINGS
+ AC_ARG_PROFILING
+ AC_ARG_PROFILE_ARCS
