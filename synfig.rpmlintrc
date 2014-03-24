@@ -1,0 +1,6 @@
+# There is no manual page for binaries
+addFilter("W: no-manual-page-for-binary")
+
+# False positive: the libdv-apps required by synfig
+# it is *not* a library package
+addFilter("E: explicit-lib-dependency")
