@@ -12,6 +12,8 @@ URL:		http://www.synfig.org
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch0:		%{name}-0.63.05-cflags.patch
+# Pulfer's patch from the enemy distro.Sflo
+Patch1:		synfig-0.64.0-libpng1.6.patch
 BuildRequires:	cvs
 BuildRequires:	ffmpeg-devel
 BuildRequires:	gettext-devel
@@ -32,6 +34,7 @@ BuildRequires:	pkgconfig(libxml++-2.6)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	automake
+# Clang knows what  the linker is? Sflo.
 BuildRequires:	gcc-c++, gcc, gcc-cpp
 
 Requires:	libdv-apps
@@ -93,6 +96,7 @@ by synfig.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p0
 
 %build
 export CC=gcc
