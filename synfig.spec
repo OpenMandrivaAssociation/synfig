@@ -17,7 +17,7 @@ BuildRequires:	ffmpeg-devel
 BuildRequires:	gettext-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	libltdl-devel
-BuildRequires:	mng-devel
+BuildRequires:	pkgconfig(libmng)
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(ETL) >= 0.4.16
 BuildRequires:	pkgconfig(cairo)
