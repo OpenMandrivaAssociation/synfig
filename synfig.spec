@@ -26,10 +26,14 @@ BuildRequires:	pkgconfig(pangocairo)
 BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(freetype2)
 BuildRequires:	pkgconfig(ImageMagick)
+BuildRequires:	pkgconfig(GraphicsMagick++)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libxml++-2.6)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sigc++-2.0)
+BuildRequires:	automake
+BuildRequires:	gcc-c++, gcc, gcc-cpp
+
 Requires:	libdv-apps
 Requires:	imagemagick
 Requires:	x11-font-cursor-misc
@@ -91,13 +95,15 @@ by synfig.
 %patch0 -p1
 
 %build
+export CC=gcc
+export CXX=g++
 # These two fix for the split of libMagick in recent releases - AdamW
 sed -i -e 's|Magick,OptimizeImageTransparency|MagickCore,OptimizeImageTransparency|g' configure.ac
 sed -i -e 's|MagickLib::|MagickCore::|g' src/modules/mod_magickpp/trgt_magickpp.cpp
 
-autoreconf -fi
+autoreconf -fiv
 CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick'
-%configure \
+%configure2_5x \
 	--disable-static \
 	--with-imagemagick
 %make
