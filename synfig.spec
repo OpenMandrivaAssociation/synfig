@@ -35,6 +35,8 @@ BuildRequires:	pkgconfig(libxml++-2.6)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	automake
+BuildRequires:	automake1.4
+BuildRequires:	config(autoconf)
 # Clang knows what  the linker is? Sflo.
 BuildRequires:	gcc-c++, gcc, gcc-cpp
 
