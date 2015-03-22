@@ -100,6 +100,7 @@ by synfig.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+rm -rf libltdl
 
 %build
 export CC=gcc
@@ -108,7 +109,10 @@ export CXX=g++
 sed -i -e 's|Magick,OptimizeImageTransparency|MagickCore,OptimizeImageTransparency|g' configure.ac
 sed -i -e 's|MagickLib::|MagickCore::|g' src/modules/mod_magickpp/trgt_magickpp.cpp
 
-autoreconf -fiv
+aclocal -I m4
+automake --add-missing
+autoconf -i --force
+
 CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick'
 %configure2_5x \
 	--disable-static \
