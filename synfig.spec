@@ -31,7 +31,7 @@ BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libxml++-2.6)
 BuildRequires:	pkgconfig(OpenEXR)
 BuildRequires:	pkgconfig(sigc++-2.0)
-BuildRequires:	automake1.4
+BuildRequires:	automake
 BuildRequires:	gcc-c++, gcc, gcc-cpp
 
 Requires:	libdv-apps
