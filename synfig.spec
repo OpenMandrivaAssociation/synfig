@@ -97,7 +97,7 @@ sed -i -e 's|MagickLib::|MagickCore::|g' src/modules/mod_magickpp/trgt_magickpp.
 
 autoreconf -fi
 CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPFLAGS='-I /usr/include/ImageMagick'
-%configure2_5x \
+%configure \
 	--disable-static \
 	--with-imagemagick
 %make
@@ -107,11 +107,3 @@ CXXFLAGS='-I /usr/include/ImageMagick' CFLAGS='-I /usr/include/ImageMagick' CPPF
 %makeinstall_std
 
 %find_lang %{name}
-
-
-%changelog
-* Sat Jun 08 2013 Giovanni Mariani <mc2374@mclink.it> 0.64.0-1
-- New release 0.64.0
-- Fixed License tag (see COPYING file)
-- Added docs to sub-packages and kept rpmlint happy
-- Silenced more rpmlint errrors and warnings (see S100 for details)
