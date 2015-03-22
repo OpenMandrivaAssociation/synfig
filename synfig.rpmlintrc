@@ -4,3 +4,6 @@ addFilter("W: no-manual-page-for-binary")
 # False positive: the libdv-apps required by synfig
 # it is *not* a library package
 addFilter("E: explicit-lib-dependency")
+# bullshitting the linting, EVRD macros not really works, about the rel... no comment .Sflo
+addFilter("E: no-dependency-on")
+addFilter("W: not-standard-release-extension")

@@ -1,6 +1,7 @@
 %define	major		0
 %define	libname		%mklibname %{name} %{major}
 %define	develname	%mklibname %{name} -d
+%define debug_package	%{nil}
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
@@ -75,8 +76,8 @@ This package contains the shared library provided by synfig.
 %package -n %{develname}
 Summary:	Development headers and libraries for %{name}
 Group:		Development/C++
-Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 
 %description -n %{develname}
 synfig is a vector based 2D animation renderer. It is designed to be capable
