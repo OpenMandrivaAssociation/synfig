@@ -100,7 +100,6 @@ by synfig.
 %setup -q
 %patch0 -p1
 %patch1 -p0
-rm -rf libltdl
 
 %build
 export CC=gcc
