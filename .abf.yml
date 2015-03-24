@@ -1,4 +1,5 @@
 removed_sources:
   synfig-0.63.05.tar.gz: d532b8dd37a7eed10ea5de6f5b2b2dd419648f2c
-sources:
   synfig-0.64.0.tar.gz: b33a4b4eeb957aa141df156ebf9e397fe4bf1503
+sources:
+  synfig-0.64.3.tar.gz: 868e55dcac9ecda93c6f4aa2d842713f5b77df8d

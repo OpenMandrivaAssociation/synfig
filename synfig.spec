@@ -5,8 +5,8 @@
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
-Version:	0.64.0
-Release:	2
+Version:	0.64.3
+Release:	1
 License:	GPLv3
 Group:		Graphics
 URL:		http://www.synfig.org
