@@ -5,8 +5,8 @@
 
 Name:		synfig
 Summary:	Vector-based 2D animation renderer
-Version:	0.64.0
-Release:	2
+Version:	0.64.3
+Release:	1
 License:	GPLv3
 Group:		Graphics
 URL:		http://www.synfig.org
@@ -14,7 +14,7 @@ Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch0:		%{name}-0.63.05-cflags.patch
 # Pulfer's patch from the enemy distro.Sflo
-Patch1:		synfig-0.64.0-libpng1.6.patch
+# Patch1:		synfig-0.64.0-libpng1.6.patch
 BuildRequires:	cvs
 BuildRequires:	ffmpeg-devel
 BuildRequires:	gettext-devel
@@ -99,7 +99,7 @@ by synfig.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
+#patch1 -p0
 
 %build
 export CC=gcc
