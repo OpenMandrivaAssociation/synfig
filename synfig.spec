@@ -99,7 +99,7 @@ by synfig.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
+#patch1 -p0
 
 %build
 export CC=gcc
