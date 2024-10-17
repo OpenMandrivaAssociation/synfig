@@ -9,7 +9,7 @@ Version:	0.64.3
 Release:	1
 License:	GPLv3
 Group:		Graphics
-URL:		http://www.synfig.org
+URL:		https://www.synfig.org
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch0:		%{name}-0.63.05-cflags.patch
