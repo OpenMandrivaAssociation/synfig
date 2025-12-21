@@ -15,6 +15,8 @@ Source100:	%{name}.rpmlintrc
 Patch0:		%{name}-0.63.05-cflags.patch
 # Pulfer's patch from the enemy distro.Sflo
 # Patch1:		synfig-0.64.0-libpng1.6.patch
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	cvs
 BuildRequires:	ffmpeg-devel
 BuildRequires:	gettext-devel
